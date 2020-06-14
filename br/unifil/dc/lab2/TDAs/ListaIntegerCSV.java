@@ -2,13 +2,47 @@ package br.unifil.dc.lab2.TDAs;
 
 public class ListaIntegerCSV implements Lista<Integer>{
 
+    /**
+     * Construtor
+     */
+    public ListaIntegerCSV(){
+        this.primeiro = primeiro;
+        this.ultimo = ultimo;
+        this.posicaoLista = -1;
+        this.lista = new Object[1000];
+    }
+
+    /**
+     * 
+     * @return -> Retorna uma string da lista, separada por vírgulas
+     *            Exemplo: [ 1, 2, 3, 4 ]
+     */
+    public String armazenadorDeValores(){
+        StringBuilder stringBuilder = new StringBuilder();
+        System.out.println("Lista: ");
+        System.out.print("[ ");
+        while(!isVazia()){
+            for(int i = 0; i < 10; i++){
+                System.out.print(acessar(i) + ", ");
+            }
+        }
+        System.out.print(" ]");
+        return stringBuilder.toString();
+    }
+
     @Override
     public int qtdeElems() {
-        return 0;
+        while(isVazia() == false){
+            totalDeElementos++;
+        }
+        return totalDeElementos;
     }
 
     @Override
     public boolean isVazia() {
+        if(posicaoLista == -1){
+            return true;    
+        }
         return false;
     }
 
@@ -19,7 +53,14 @@ public class ListaIntegerCSV implements Lista<Integer>{
 
     @Override
     public void inserir(int indice, Integer obj) {
-        
+        if (posicaoLista == -1) {
+            this.ultimo = obj;
+            this.primeiro = obj;
+        }else{
+            for(int i = 0; i < totalDeElementos; i++){
+                posicaoLista++;
+            }
+        }
     }
 
     @Override
@@ -36,5 +77,10 @@ public class ListaIntegerCSV implements Lista<Integer>{
     public boolean existe(Integer obj) {
         return false;
     }
-    
+
+    public Object[] lista;
+    public int posicaoLista;
+    private int totalDeElementos;
+    private int primeiro;
+    private int ultimo;
 }

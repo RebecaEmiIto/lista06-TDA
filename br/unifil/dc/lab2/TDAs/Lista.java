@@ -7,9 +7,14 @@ package br.unifil.dc.lab2.TDAs;
  * @param <T>
  */
 public interface Lista<T> extends Colecao<T> {
+
     T acessar(int indice);
+    
     void inserir(int indice, T obj);
+    
     T remover(int indice);
+    
     int pesquisar(T obj);
+    
     boolean existe(T obj);
 }
