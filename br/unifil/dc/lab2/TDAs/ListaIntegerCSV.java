@@ -17,14 +17,13 @@ public class ListaIntegerCSV implements Lista<Integer>{
      * @return -> Retorna uma string da lista, separada por vírgulas
      *            Exemplo: [ 1, 2, 3, 4 ]
      */
-    public String armazenadorDeValores(){
+    public String armazenadorDeValores(int indice, Integer obj){
         StringBuilder stringBuilder = new StringBuilder();
         System.out.println("Lista: ");
         System.out.print("[ ");
         while(!isVazia()){
-            for(int i = 0; i < 10; i++){
-                System.out.print(acessar(i) + ", ");
-            }
+            System.out.println(inserir(indice, obj));
+            
         }
         System.out.print(" ]");
         return stringBuilder.toString();
