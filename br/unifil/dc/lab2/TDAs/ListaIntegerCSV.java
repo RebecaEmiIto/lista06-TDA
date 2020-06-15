@@ -79,8 +79,10 @@ public class ListaIntegerCSV implements Lista<Integer>{
                 prox = (Integer)lista[i+1];
                 lista[i] = prox;
             }
-            prox = (Integer)lista[i+1];
-            lista[i] = prox;
+            if(indice < i){
+                prox = (Integer)lista[i+1];
+                lista[i] = prox;
+            }
         }
         totalDeElementos--;
         System.out.println("O número removido foi: " + remove);
@@ -93,8 +95,11 @@ public class ListaIntegerCSV implements Lista<Integer>{
         for (int i = 0; i < lista.length; i++) {
             if (obj.equals(i)) {
                 number = i;
+            }else{
+                throw new RuntimeException("O número não foi encontrado na lista.");
             }
         }
+        System.out.println("O número" + obj + "foi encontrado, ele está no índice " + number );
         return number;
     }
 
