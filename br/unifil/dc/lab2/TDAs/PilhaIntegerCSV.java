@@ -1,7 +1,6 @@
 package br.unifil.dc.lab2.TDAs;
 
 public class PilhaIntegerCSV implements Pilha<Integer> {
-
     /**
      * Construtor
      */
@@ -13,12 +12,12 @@ public class PilhaIntegerCSV implements Pilha<Integer> {
     }
 
     /**
-     * 
+     *
      * @return -> Retorna uma string da pilha, separada por vírgulas
      *            Exemplo: [ 1, 2, 3, 4 ]
      */
     public String armazenadorDeValores(){
-        System.out.println("Lista: ");
+        System.out.println("Pilha: ");
         System.out.print("[ ");
         for(int i = 0; i <= totalDeElementos; i++){
             System.out.print(pilha[i]);
@@ -27,18 +26,22 @@ public class PilhaIntegerCSV implements Pilha<Integer> {
             }
         }
         System.out.print(" ] \n");
-        return "lista";
+        return "Pilha";
     }
 
-    //qtdeElems == tamanho (ñ esta atribuindo)
+    //qtdeElems é igual a tamanho
     @Override
     public int qtdeElems() {
-        while(olharTopo() != null){
-            totalDeElementos++;
+//        while(olharTopo() != null){
+//            totalDeElementos++;
+//        }
+//        return totalDeElementos;
+        if (this.isVazia()){
+            return 0;
         }
-        return totalDeElementos;
+        return this.posicaoPilha + 1;
     }
-    
+
     @Override
     public boolean isVazia() {
         if (posicaoPilha == -1){
@@ -51,21 +54,19 @@ public class PilhaIntegerCSV implements Pilha<Integer> {
     public void empilhar(Integer obj) {
         if (posicaoPilha == -1) {
             this.ultimo = obj;
+            //this.topo = obj;
             pilha[0] = obj;
             posicaoPilha++;
+            //qtdeElems();
         }else{
-            for (int i = 0; i < totalDeElementos; i++) {
-                if (totalDeElementos == i) {
-                    pilha[i] = obj;
-                    this.topo = obj;
-                }
-                totalDeElementos++;
-                posicaoPilha++;  
-            }
-        }
-    }
 
-    @Override
+            pilha[posicaoPilha + 1] = obj;
+            this.topo = obj;
+            posicaoPilha++;
+            //qtdeElems();
+        }
+    
+    }
     public Integer desempilhar() {
         Integer remove = 0;
         Integer prox = 0;
@@ -91,7 +92,7 @@ public class PilhaIntegerCSV implements Pilha<Integer> {
         }
         return topo;
     }
-    
+
     private int totalDeElementos;
     private int topo;
     private int ultimo;
