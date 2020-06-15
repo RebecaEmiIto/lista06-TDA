@@ -8,8 +8,20 @@ package br.unifil.dc.lab2.TDAs;
  * @param <T>
  */
 public interface Fila<T> extends Colecao<T> {
+  /**
+   * Adiciona os elementos na fila.
+   * @param obj Objeto que será adicionado na fila.
+   */
     void enfileirar(T obj);
+    /**
+     * Remove o primeiro elemento da fila.
+     * @return O elemento removido.
+     */
     T desenfileirar();
+    /**
+     * Verifica qual elemento está na primeira posição.
+     * @return O elemento que está contido na primeira posição.
+     */
     T olharPrimeiro();
 }
 /*
