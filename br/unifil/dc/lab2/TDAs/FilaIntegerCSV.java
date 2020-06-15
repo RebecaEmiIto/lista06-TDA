@@ -17,7 +17,7 @@ public class FilaIntegerCSV implements Fila<Integer>{
      */
     public String armazenadorDeValores(){
         StringBuilder line = new StringBuilder();
-        System.out.println("Lista: ");
+        System.out.println("Fila: ");
         line.append("[ ");
         for(int i = 0; i <= posicaoFila; i++){
             line.append(fila[i]);
@@ -54,15 +54,12 @@ public class FilaIntegerCSV implements Fila<Integer>{
             fila[0] = obj;
             posicaoFila++;
         }else{
-            for (int i = 0; i <= posicaoFila; i++) {
-                if (posicaoFila == i) {
-                    fila[i + 1] = obj;
-                    ultimo = obj;
-                }
-                quantidadeElementos++;
-                posicaoFila++;  
-            }
+            fila[posicaoFila + 1] = obj;
+            ultimo = obj;
+            quantidadeElementos++;
+            posicaoFila++;  
         }
+        
     }
 
     @Override
