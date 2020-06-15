@@ -21,7 +21,7 @@ public class Main {
                     x = true;
                     subX = true;
                     while(subX == true){
-                        System.out.println(" --Lista-- \n 1 - Add elemento \n 2 - Remover elemento \n 3 - Mostrar (armazenador) \n 4 - pesquisar numero \n 5 - sair");
+                        System.out.println(" --Lista-- \n 1 - Add elemento \n 2 - Remover elemento \n 3 - Mostrar (armazenador) \n 4 - pesquisar numero \n 5 - acessar valor \n 6 - sair");
                         subNum = scan.nextInt();
                         switch(subNum){
                             case 1: System.out.println("Add elemento na lista");
@@ -50,7 +50,13 @@ public class Main {
                                     lista.pesquisar(obj);
                             break;
 
-                            case 5: System.out.println("saida");
+                            case 5: System.out.println("insira um indice: ");
+                                    subX = true;
+                                    indice = scan.nextInt();
+                                    lista.acessar(indice);
+                            break;
+
+                            case 6: System.out.println("saida");
                                     subX = false;
                             break;
                         }          

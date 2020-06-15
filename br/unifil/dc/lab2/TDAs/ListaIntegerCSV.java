@@ -51,6 +51,7 @@ public class ListaIntegerCSV implements Lista<Integer>{
     @Override
     public Integer acessar(int indice) {
         Integer valor = (Integer)lista[indice];
+        System.out.println("o numero do indice "+ indice + " é " + valor);
         return valor;
     }
 
