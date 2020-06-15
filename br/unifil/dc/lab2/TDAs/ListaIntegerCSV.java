@@ -97,11 +97,9 @@ public class ListaIntegerCSV implements Lista<Integer>{
             element = (Integer)lista[i];
             if (obj.equals(element)) {
                 number = i;
-            }else{
-                throw new RuntimeException("O número não foi encontrado na lista.");
             }
         }
-        System.out.println("O número" + obj + "foi encontrado, ele está no índice " + number );
+        System.out.println("O número " + obj + " foi encontrado, ele está no índice " + number );
         return number;
     }
 

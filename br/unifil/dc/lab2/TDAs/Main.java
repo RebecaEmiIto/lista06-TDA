@@ -21,7 +21,7 @@ public class Main {
                     x = true;
                     subX = true;
                     while(subX == true){
-                        System.out.println(" --Lista-- \n 1 - Add elemento \n 2 - Remover elemento \n 3 - Mostrar (armazenador) \n 4 - sair");
+                        System.out.println(" --Lista-- \n 1 - Add elemento \n 2 - Remover elemento \n 3 - Mostrar (armazenador) \n 4 - pesquisar numero \n 5 - sair");
                         subNum = scan.nextInt();
                         switch(subNum){
                             case 1: System.out.println("Add elemento na lista");
@@ -44,7 +44,13 @@ public class Main {
                                     lista.armazenadorDeValores();
                             break;
                             
-                            case 4: System.out.println("saida");
+                            case 4: System.out.println("Pesquisar elemento");
+                                    subX = true;
+                                    obj = scan.nextInt();
+                                    lista.pesquisar(obj);
+                            break;
+
+                            case 5: System.out.println("saida");
                                     subX = false;
                             break;
                         }          
@@ -55,7 +61,7 @@ public class Main {
                         x = true;
                         subX = true;
                         while(subX == true){
-                            System.out.println(" --Pilha-- \n 1 - Add elemento \n 2 - Remover elemento \n 3 - Mostrar (armazenador) \n 4 - sair");
+                            System.out.println(" --Pilha-- \n 1 - Add elemento \n 2 - Remover elemento \n 3 - Mostrar (armazenador) \n 4 - olhar o topo \n 5 - sair");
                             subNum = scan.nextInt();
                             switch(subNum){
                                 case 1: System.out.println("Add elemento na Pilha");
@@ -75,7 +81,12 @@ public class Main {
                                         pilha.armazenadorDeValores();
                                 break;
 
-                                case 4: System.out.println("saida");
+                                case 4: System.out.println("topo"); 
+                                        subX = true;
+                                        pilha.olharTopo();
+                                break;
+
+                                case 5: System.out.println("saida");
                                         subX = false;
                                 break;
                             }          
@@ -86,13 +97,11 @@ public class Main {
                         x = true;
                         subX = true;
                         while(subX == true){
-                            System.out.println(" --Fila-- \n 1 - Add elemento \n 2 - Remover elemento \n 3 - Mostrar (armazenador) \n 4 - sair");
+                            System.out.println(" --Fila-- \n 1 - Add elemento \n 2 - Remover elemento \n 3 - Mostrar (armazenador) \n 4 - olhar o primeiro da fila \n 5 - sair");
                             subNum = scan.nextInt();
                             switch(subNum){
                                 case 1: System.out.println("Add elemento na Fila");
                                         subX = true;
-                                        System.out.println("Insira o índice onde o elemento sera inserido na Fila");
-                                        indice = scan.nextInt();
                                         System.out.println("Insira o número que sera inserido na Fila");
                                         obj = scan.nextInt();
                                         fila.enfileirar(obj);
@@ -100,7 +109,6 @@ public class Main {
                                 
                                 case 2: System.out.println("Desnfileira elemento da Fila");
                                         subX = true;
-                                        indice = scan.nextInt();
                                         fila.desenfileirar();
                                 break;
 
@@ -109,7 +117,12 @@ public class Main {
                                         fila.armazenadorDeValores();
                                 break;
                                 
-                                case 4: System.out.println("saida");
+                                case 4: System.out.println("primeiro da fila: ");
+                                        subX = true;
+                                        fila.olharPrimeiro();
+                                break;
+
+                                case 5: System.out.println("saida");
                                         subX = false;
                                 break;
                             }          
