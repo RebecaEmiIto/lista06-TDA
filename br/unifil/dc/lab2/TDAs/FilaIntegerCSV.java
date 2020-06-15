@@ -35,7 +35,8 @@ public class FilaIntegerCSV implements Fila<Integer>{
         if(this.isVazia()){
             return 0;
         }
-        return posicaoFila + 1;
+        quantidadeElementos = posicaoFila + 1;
+        return quantidadeElementos;
     }
 
     @Override
@@ -53,8 +54,8 @@ public class FilaIntegerCSV implements Fila<Integer>{
             fila[0] = obj;
             posicaoFila++;
         }else{
-            for (int i = 0; i <= quantidadeElementos; i++) {
-                if (quantidadeElementos == i) {
+            for (int i = 0; i <= posicaoFila; i++) {
+                if (posicaoFila == i) {
                     fila[i + 1] = obj;
                     ultimo = obj;
                 }
@@ -68,12 +69,12 @@ public class FilaIntegerCSV implements Fila<Integer>{
     public Integer desenfileirar() {
         Integer remove = 0;
         Integer prox = 0;
-        for (int i = 0; i <= quantidadeElementos; i++) {
-            if (quantidadeElementos == i) {
+        for (int i = 0; i <= posicaoFila; i++) {
+            if (posicaoFila == i) {
                 remove = (Integer)fila[i];
                 prox = (Integer)fila[i+1];
                 fila[i] = prox;
-                quantidadeElementos--;
+                posicaoFila--;
             }
         }
         return remove;

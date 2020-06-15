@@ -40,8 +40,9 @@ public class PilhaIntegerCSV implements Pilha<Integer> {
 //        return totalDeElementos;
         if (this.isVazia()){
             return 0;
-        }
-        return this.posicaoPilha + 1;
+        }        
+        totalDeElementos = posicaoPilha + 1;
+        return totalDeElementos;
     }
 
     @Override
@@ -75,12 +76,12 @@ public class PilhaIntegerCSV implements Pilha<Integer> {
         if (isVazia()){
             return null;
         }else{
-            for (int i = 0; i <= totalDeElementos; i++) {
-                if (totalDeElementos == i) {
+            for (int i = 0; i <= posicaoPilha; i++) {
+                if (posicaoPilha == i) {
                     remove = (Integer)pilha[i];
                     prox = (Integer)pilha[i+1];
                     pilha[i] = prox;
-                    totalDeElementos--;
+                    posicaoPilha--;
                 }
             }
         }
