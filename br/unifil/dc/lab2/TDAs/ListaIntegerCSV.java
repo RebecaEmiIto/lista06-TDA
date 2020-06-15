@@ -78,9 +78,11 @@ public class ListaIntegerCSV implements Lista<Integer>{
                 //lista[i] = null;
                 prox = (Integer)lista[i+1];
                 lista[i] = prox;
-                totalDeElementos--;
             }
+            prox = (Integer)lista[i+1];
+            lista[i] = prox;
         }
+        totalDeElementos--;
         System.out.println("O número removido foi: " + remove);
         return remove;
     }
