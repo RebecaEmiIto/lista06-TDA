@@ -16,13 +16,16 @@ public class FilaIntegerCSV implements Fila<Integer>{
      *            Exemplo: [ 1, 2, 3, 4 ]
      */
     public String armazenadorDeValores(){
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("[ ");
-        while(!isVazia()){
-            stringBuilder.append(olharPrimeiro() + ", ");
+        System.out.println("Lista: ");
+        System.out.print("[ ");
+        for(int i = 0; i <= quantidadeElementos; i++){
+            System.out.print(fila[i]);
+            if(i < quantidadeElementos){
+                System.out.print(", ");
+            }
         }
-        stringBuilder.append(" ]");
-        return stringBuilder.toString();
+        System.out.print(" ] \n");
+        return "lista";
     }
 
     @Override
@@ -48,10 +51,13 @@ public class FilaIntegerCSV implements Fila<Integer>{
             fila[0] = obj;
             posicaoFila++;
         }else{
-            for (int i = 0; i < quantidadeElementos; i++) {
+            for (int i = 0; i <= quantidadeElementos; i++) {
                 if (quantidadeElementos == i) {
                     fila[i + 1] = obj;
+                    ultimo = obj;
                 }
+                quantidadeElementos++;
+                posicaoFila++;  
             }
         }
     }
@@ -59,15 +65,18 @@ public class FilaIntegerCSV implements Fila<Integer>{
     @Override
     public Integer desenfileirar() {
         Integer remove = 0;
-        for (int i = 0; i < quantidadeElementos; i++) {
+        Integer prox = 0;
+        for (int i = 0; i <= quantidadeElementos; i++) {
             if (quantidadeElementos == i) {
                 remove = (Integer)fila[i];
-                fila[i] = null;
+                prox = (Integer)fila[i+1];
+                fila[i] = prox;
+                quantidadeElementos--;
             }
         }
         return remove;
     }
-    
+
     @Override
     public Integer olharPrimeiro() {
         primeiro = (Integer)fila[0];

@@ -6,6 +6,8 @@ public class PilhaIntegerCSV implements Pilha<Integer> {
      * Construtor
      */
     public PilhaIntegerCSV(){
+        this.topo = topo;
+        this.ultimo = ultimo;
         this.posicaoPilha = -1;
         this.pilha = new Object[1000];
     }
@@ -16,13 +18,16 @@ public class PilhaIntegerCSV implements Pilha<Integer> {
      *            Exemplo: [ 1, 2, 3, 4 ]
      */
     public String armazenadorDeValores(){
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("[ ");
-        while(!isVazia()){
-            stringBuilder.append(olharTopo() + ", ");
+        System.out.println("Lista: ");
+        System.out.print("[ ");
+        for(int i = 0; i <= totalDeElementos; i++){
+            System.out.print(pilha[i]);
+            if(i < totalDeElementos){
+                System.out.print(", ");
+            }
         }
-        stringBuilder.append(" ]");
-        return stringBuilder.toString();
+        System.out.print(" ] \n");
+        return "lista";
     }
 
     //qtdeElems == tamanho (ñ esta atribuindo)
@@ -46,12 +51,16 @@ public class PilhaIntegerCSV implements Pilha<Integer> {
     public void empilhar(Integer obj) {
         if (posicaoPilha == -1) {
             this.ultimo = obj;
+            pilha[0] = obj;
+            posicaoPilha++;
         }else{
-            for (int i = 0; i <= totalDeElementos; i++) {
+            for (int i = 0; i < totalDeElementos; i++) {
                 if (totalDeElementos == i) {
-                    pilha[i + 1] = obj;
+                    pilha[i] = obj;
                     this.topo = obj;
                 }
+                totalDeElementos++;
+                posicaoPilha++;  
             }
         }
     }
@@ -59,13 +68,16 @@ public class PilhaIntegerCSV implements Pilha<Integer> {
     @Override
     public Integer desempilhar() {
         Integer remove = 0;
+        Integer prox = 0;
         if (isVazia()){
             return null;
         }else{
             for (int i = 0; i <= totalDeElementos; i++) {
                 if (totalDeElementos == i) {
                     remove = (Integer)pilha[i];
-                    pilha[i] = null;
+                    prox = (Integer)pilha[i+1];
+                    pilha[i] = prox;
+                    totalDeElementos--;
                 }
             }
         }
