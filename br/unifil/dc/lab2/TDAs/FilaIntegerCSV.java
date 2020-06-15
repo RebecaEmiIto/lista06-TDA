@@ -16,15 +16,17 @@ public class FilaIntegerCSV implements Fila<Integer>{
      *            Exemplo: [ 1, 2, 3, 4 ]
      */
     public String armazenadorDeValores(){
+        StringBuilder line = new StringBuilder();
         System.out.println("Lista: ");
-        System.out.print("[ ");
+        line.append("[ ");
         for(int i = 0; i <= quantidadeElementos; i++){
-            System.out.print(fila[i]);
+            line.append(fila[i]);
             if(i < quantidadeElementos){
-                System.out.print(", ");
+                line.append(", ");
             }
         }
-        System.out.print(" ] \n");
+        line.append(" ] \n");
+        System.out.print(line);
         return "lista";
     }
 

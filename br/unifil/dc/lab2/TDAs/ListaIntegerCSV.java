@@ -18,16 +18,18 @@ public class ListaIntegerCSV implements Lista<Integer>{
      *            Exemplo: [ 1, 2, 3, 4 ]
      */
     public String armazenadorDeValores(){
+        StringBuilder list = new StringBuilder();
         System.out.println("Lista: ");
-        System.out.print("[ ");
+        list.append("[ ");
         for(int i = 0; i <= totalDeElementos; i++){
-            System.out.print(lista[i]);
+            list.append(lista[i]);
             if(i < totalDeElementos){
-                System.out.print(", ");
+                list.append(", ");
             }
         }
-        System.out.print(" ] \n");
-        return "lista";
+        list.append(" ] \n");
+        System.out.println(list);
+        return list.toString();
     }
 
     @Override

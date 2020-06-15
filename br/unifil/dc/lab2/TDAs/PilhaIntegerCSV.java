@@ -17,16 +17,18 @@ public class PilhaIntegerCSV implements Pilha<Integer> {
      *            Exemplo: [ 1, 2, 3, 4 ]
      */
     public String armazenadorDeValores(){
+        StringBuilder pile = new StringBuilder();
         System.out.println("Pilha: ");
-        System.out.print("[ ");
+        pile.append("[ ");
         for(int i = 0; i <= totalDeElementos; i++){
-            System.out.print(pilha[i]);
+            pile.append(pilha[i]);
             if(i < totalDeElementos){
-                System.out.print(", ");
+                pile.append(", ");
             }
         }
-        System.out.print(" ] \n");
-        return "Pilha";
+        pile.append(" ] \n");
+        System.out.println(pile);
+        return pile.toString();
     }
 
     //qtdeElems é igual a tamanho
