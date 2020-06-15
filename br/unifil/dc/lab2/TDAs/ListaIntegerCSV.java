@@ -92,8 +92,10 @@ public class ListaIntegerCSV implements Lista<Integer>{
     @Override
     public int pesquisar(Integer obj) {
         Integer number = 0;
+        Integer element = 0;
         for (int i = 0; i < lista.length; i++) {
-            if (obj.equals(i)) {
+            element = (Integer)lista[i];
+            if (obj.equals(element)) {
                 number = i;
             }else{
                 throw new RuntimeException("O número não foi encontrado na lista.");
