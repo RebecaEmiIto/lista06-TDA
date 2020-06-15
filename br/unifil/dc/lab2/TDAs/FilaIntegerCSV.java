@@ -67,19 +67,22 @@ public class FilaIntegerCSV implements Fila<Integer>{
         Integer remove = 0;
         Integer prox = 0;
         for (int i = 0; i <= posicaoFila; i++) {
-            if (posicaoFila == i) {
-                remove = (Integer)fila[i];
-                prox = (Integer)fila[i+1];
-                fila[i] = prox;
-                posicaoFila--;
+            if (posicaoFila == 0) {
+                remove = (Integer)fila[0];
+                prox = (Integer)fila[1];
+                fila[0] = prox;
             }
+            prox = (Integer)fila[i+1];
+            fila[i] = prox;
         }
+        posicaoFila--;
         return remove;
     }
 
     @Override
     public Integer olharPrimeiro() {
         primeiro = (Integer)fila[0];
+        System.out.println(primeiro);
         return primeiro;
     }
     
