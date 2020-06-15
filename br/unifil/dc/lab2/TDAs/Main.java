@@ -60,13 +60,16 @@ public class Main {
                             switch(subNum){
                                 case 1: System.out.println("Add elemento na Pilha");
                                         subX = true;
+                                        System.out.println("Insira o índice onde o elemento sera inserido na Pilha");
                                         indice = scan.nextInt();
+                                        System.out.println("Insira o número que sera inserido na Pilha");
                                         obj = scan.nextInt();
                                         pilha.empilhar(obj);
                                 break;
                                 
                                 case 2: System.out.println("Remove elemento da Pilha");
                                         subX = true;
+                                        System.out.println("Remove elemento da Pilha");
                                         indice = scan.nextInt();
                                         pilha.desempilhar();
                                 break;
@@ -92,7 +95,9 @@ public class Main {
                             switch(subNum){
                                 case 1: System.out.println("Add elemento na Fila");
                                         subX = true;
+                                        System.out.println("Insira o índice onde o elemento sera inserido na Fila");
                                         indice = scan.nextInt();
+                                        System.out.println("Insira o número que sera inserido na Fila");
                                         obj = scan.nextInt();
                                         fila.enfileirar(obj);
                                 break;

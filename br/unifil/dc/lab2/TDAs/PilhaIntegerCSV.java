@@ -1,6 +1,7 @@
 package br.unifil.dc.lab2.TDAs;
 
 public class PilhaIntegerCSV implements Pilha<Integer> {
+
     /**
      * Construtor
      */
@@ -8,7 +9,7 @@ public class PilhaIntegerCSV implements Pilha<Integer> {
         this.posicaoPilha = -1;
         this.pilha = new Object[1000];
     }
-    
+
     /**
      * 
      * @return -> Retorna uma string da pilha, separada por vírgulas
@@ -40,54 +41,37 @@ public class PilhaIntegerCSV implements Pilha<Integer> {
         }
         return false;
     }
-    
+
     @Override
     public void empilhar(Integer obj) {
         if (posicaoPilha == -1) {
-            this.topo = obj;
+            this.ultimo = obj;
         }else{
-            posicaoPilha++;
-        }
-    }
-    /*
-    public void adicionar(int _valor) {
-        Node _node = new Node(_valor);
-        if (this.inicio == null) {
-            this.inicio = _node;
-        } else {
-            Node aux = this.inicio;
-            while (aux.getProximo() != null) {
-                aux = aux.getProximo();
+            for (int i = 0; i <= totalDeElementos; i++) {
+                if (totalDeElementos == i) {
+                    pilha[i + 1] = obj;
+                    this.topo = obj;
+                }
             }
-            aux.setProximo(_node);
-            _node.setAnterior(aux);
         }
-        tamanho++;
     }
-    */
-    
+
     @Override
     public Integer desempilhar() {
+        Integer remove = 0;
         if (isVazia()){
             return null;
+        }else{
+            for (int i = 0; i <= totalDeElementos; i++) {
+                if (totalDeElementos == i) {
+                    remove = (Integer)pilha[i];
+                    pilha[i] = null;
+                }
+            }
         }
-        return topo;
+        return remove;
     }
-    
-    /*
-    public void remover(int _valor) {
-        Node aux = this.inicio;
-        Node anterior = null;
-        while (aux.getProximo() != null && aux.getValor() != _valor) {
-            anterior = aux;
-            aux = aux.getProximo();
-        }
-        aux.getProximo().setAnterior(anterior);
-        anterior.setProximo(aux.getProximo());
-        this.tamanho--;
-    }
-    */
-    
+
     @Override
     public Integer olharTopo() {
         if(this.isVazia()){

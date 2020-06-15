@@ -27,26 +27,50 @@ public class FilaIntegerCSV implements Fila<Integer>{
 
     @Override
     public int qtdeElems() {
-        return quantidadeElementos;
+        if(this.isVazia()){
+            return 0;
+        }
+        return posicaoFila + 1;
     }
 
     @Override
     public boolean isVazia() {
+        if (posicaoFila == -1){
+            return true;
+        }
         return false;
     }
 
     @Override
     public void enfileirar(Integer obj) {
-        
+        if (posicaoFila == -1) {
+            this.primeiro = obj;
+            fila[0] = obj;
+            posicaoFila++;
+        }else{
+            for (int i = 0; i < quantidadeElementos; i++) {
+                if (quantidadeElementos == i) {
+                    fila[i + 1] = obj;
+                }
+            }
+        }
     }
 
     @Override
     public Integer desenfileirar() {
-        return null;
+        Integer remove = 0;
+        for (int i = 0; i < quantidadeElementos; i++) {
+            if (quantidadeElementos == i) {
+                remove = (Integer)fila[i];
+                fila[i] = null;
+            }
+        }
+        return remove;
     }
     
     @Override
     public Integer olharPrimeiro() {
+        primeiro = (Integer)fila[0];
         return primeiro;
     }
     
