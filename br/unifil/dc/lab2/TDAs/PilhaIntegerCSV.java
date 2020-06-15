@@ -20,9 +20,9 @@ public class PilhaIntegerCSV implements Pilha<Integer> {
         StringBuilder pile = new StringBuilder();
         System.out.println("Pilha: ");
         pile.append("[ ");
-        for(int i = 0; i <= totalDeElementos; i++){
+        for(int i = 0; i <= posicaoPilha; i++){
             pile.append(pilha[i]);
-            if(i < totalDeElementos){
+            if(i < posicaoPilha){
                 pile.append(", ");
             }
         }

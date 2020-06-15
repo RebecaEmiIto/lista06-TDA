@@ -19,15 +19,15 @@ public class FilaIntegerCSV implements Fila<Integer>{
         StringBuilder line = new StringBuilder();
         System.out.println("Lista: ");
         line.append("[ ");
-        for(int i = 0; i <= quantidadeElementos; i++){
+        for(int i = 0; i <= posicaoFila; i++){
             line.append(fila[i]);
-            if(i < quantidadeElementos){
+            if(i < posicaoFila){
                 line.append(", ");
             }
         }
         line.append(" ] \n");
         System.out.print(line);
-        return "lista";
+        return line.toString();
     }
 
     @Override
