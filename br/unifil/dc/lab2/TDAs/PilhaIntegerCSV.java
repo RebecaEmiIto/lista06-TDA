@@ -93,6 +93,7 @@ public class PilhaIntegerCSV implements Pilha<Integer> {
         if(this.isVazia()){
             return null;
         }
+        System.out.println("O elemento do topo da pilha é: " + topo);
         return topo;
     }
 
